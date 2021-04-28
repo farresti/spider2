@@ -95,7 +95,9 @@ namespace spider {
 
                 template<class Function, class ...Args>
                 inline void apply(const DependencyInfo &dep, const Function &func, Args &&...args) {
-                    func(dep, std::forward<Args>(args)...);
+                    if constexpr(std::is_invocable_r_v<Function, DependencyInfo &, Args...>) {
+                        func(dep, std::forward<Args>(args)...);
+                    }
                 }
 
                 template<class ...Args>
@@ -154,7 +156,7 @@ namespace spider {
                             const auto uCons = ifSrcRate + end;
                             count += computeExecDependency(innerEdge, lCons, uCons, ghdl, std::forward<Args>(args)...);
                         } else {
-                            apply(unresolved, std::forward<Args>(args)...);
+                            impl::apply(unresolved, std::forward<Args>(args)...);
                         }
                     }
                     return count;
