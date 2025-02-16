@@ -305,6 +305,9 @@ spider::pisdf::GraphFiring::copyParameter(const std::shared_ptr<pisdf::Param> &p
             paramParentIx = (*parent)->parent() ? (*parent)->parent()->ix() : throwNullptrException();
             parent = &parentHandler->getParams()[paramParentIx];
         }
+        if (!parent) {
+            throwNullptrException();
+        }
         auto newParam = spider::make_shared<Param, StackID::PISDF>(param->name(), *parent);
         newParam->setIx(param->ix());
         return newParam;
