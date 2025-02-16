@@ -95,9 +95,7 @@ namespace spider {
 
                 template<class Function, class ...Args>
                 inline void apply(const DependencyInfo &dep, const Function &func, Args &&...args) {
-                    if constexpr(std::is_invocable_r_v<Function, DependencyInfo &, Args...>) {
-                        func(dep, std::forward<Args>(args)...);
-                    }
+                    func(dep, std::forward<Args>(args)...);
                 }
 
                 template<class ...Args>
