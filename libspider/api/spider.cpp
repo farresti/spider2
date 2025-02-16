@@ -116,7 +116,7 @@ static void printConfig(const spider::StartUpConfig &cfg) {
 
 /* === Function(s) definition === */
 
-std::array<std::unique_ptr<spider::Stack>, STACK_COUNT> &stackArray() {
+std::array<std::unique_ptr<spider::Stack>, STACK_COUNT> &spider::stackArray() {
     static std::array<std::unique_ptr<spider::Stack>, STACK_COUNT> stackArray = {{ nullptr }};
     return stackArray;
 }
