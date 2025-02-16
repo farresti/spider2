@@ -214,7 +214,7 @@ void spider::pisdf::Vertex::setName(std::string name) {
     const auto size = name.size();
     name_.reset(spider::make_n<char, StackID::PISDF>(size + 1));
     std::move(std::begin(name), std::end(name), name_.get());
-    name_[size - 1] = '\0';
+    name_[size] = '\0';
 }
 
 
