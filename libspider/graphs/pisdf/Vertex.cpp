@@ -38,7 +38,6 @@
 #include <graphs/pisdf/Edge.h>
 #include <graphs/pisdf/Param.h>
 #include <graphs/pisdf/Graph.h>
-#include <graphs-tools/helper/visitors/PiSDFVisitor.h>
 
 /* === Function(s) definition === */
 

@@ -149,7 +149,7 @@ void spider::srdag::detail::cloneVertex(const pisdf::Vertex *vertex, u32 firing,
          *                               A -> |       | -> B
          *    But in reality the vertex does not make it after the SR-Transformation.
          */
-        auto *clone = make<srdag::Vertex, StackID::TRANSFO>(vertex, firing, 2, 2);
+        auto *clone = make<srdag::Vertex, StackID::TRANSFO>(vertex, firing, 2u, 2u);
         clone->setExecutable(false);
         /* == Add clone to the srdag == */
         srdag->addVertex(clone);

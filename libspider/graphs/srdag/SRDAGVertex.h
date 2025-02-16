@@ -70,9 +70,9 @@ namespace spider {
 
             Vertex &operator=(Vertex &&) = default;
 
-            Vertex(const Vertex &) = default;
+            Vertex(const Vertex &) = delete;
 
-            Vertex &operator=(const Vertex &) = default;
+            Vertex &operator=(const Vertex &) = delete;
 
             ~Vertex();
 
